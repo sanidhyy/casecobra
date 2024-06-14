@@ -1,11 +1,11 @@
 import { ArrowRight, Check, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Icons } from "@/components/icons";
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { Phone } from "@/components/phone";
 import { Reviews } from "@/components/reviews";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const HomePage = () => {
@@ -19,7 +19,8 @@ const HomePage = () => {
                 <Image
                   src="/snake-1.png"
                   alt="Snake 1"
-                  fill
+                  width={112}
+                  height={140}
                   className="w-full"
                 />
               </div>

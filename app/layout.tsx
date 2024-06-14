@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
 
+import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 
 import "./globals.css";
@@ -20,6 +21,8 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
         <Navbar />
 
         {children}
+
+        <Footer />
       </body>
     </html>
   );
