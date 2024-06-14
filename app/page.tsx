@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Icons } from "@/components/icons";
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { Phone } from "@/components/phone";
+import { Reviews } from "@/components/reviews";
 
 const HomePage = () => {
   return (
@@ -245,6 +246,10 @@ const HomePage = () => {
             </div>
           </div>
         </MaxWidthWrapper>
+
+        <div className="pt-16">
+          <Reviews />
+        </div>
       </section>
     </main>
   );
