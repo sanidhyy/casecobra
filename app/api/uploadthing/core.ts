@@ -4,7 +4,7 @@ import { z } from "zod";
 const f = createUploadthing();
 
 export const appFileRouter = {
-  imageUploader: f({ image: { maxFileSize: "4MB" } })
+  imageUploader: f({ image: { maxFileSize: "8MB" } })
     .input(
       z.object({
         configId: z.string().optional(),

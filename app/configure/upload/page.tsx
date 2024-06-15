@@ -32,14 +32,33 @@ const UploadPage = () => {
   const onDropRejected = (rejectedFiles: FileRejection[]) => {
     const [file] = rejectedFiles;
 
+    const isFileInvalid = file.errors.find(
+      (error) => error.code === "file-invalid-type"
+    );
+    const isFileTooLarge = file.errors.find(
+      (error) => error.code === "file-too-large"
+    );
+
     setIsDragOver(false);
 
-    toast.error(
-      `${file.file.type.split("/")[1].toUpperCase()} type if not supported.`,
-      {
-        description: "Please choose a PNG, JPG or JPEG image instead.",
-      }
-    );
+    if (isFileInvalid) {
+      return toast.error(
+        `${file.file.type.split("/")[1].toUpperCase()} type if not supported.`,
+        {
+          description: "Please choose a PNG, JPG or JPEG image instead.",
+        }
+      );
+    }
+
+    if (isFileTooLarge) {
+      return toast.error(`Image is too large.`, {
+        description: "Please choose a image up to 8MB.",
+      });
+    }
+
+    return toast.error(`Something went wrong.`, {
+      description: "Please try again later.",
+    });
   };
 
   const onDropAccepted = (acceptedFiles: File[]) => {
@@ -71,10 +90,11 @@ const UploadPage = () => {
           onDragEnter={() => setIsDragOver(true)}
           onDragLeave={() => setIsDragOver(false)}
           disabled={isUploading || isPending}
+          maxSize={8_000_000}
         >
           {({ getRootProps, getInputProps }) => (
             <div
-              className="h-full w-full flex-1 flex flex-col items-center justify-center"
+              className="h-full w-full flex-1 flex flex-col items-center justify-center cursor-pointer"
               {...getRootProps()}
             >
               <input {...getInputProps()} />
@@ -113,7 +133,12 @@ const UploadPage = () => {
               </div>
 
               {isPending ? null : (
-                <p className="text-xs text-zinc-500">PNG, JPG or JPEG</p>
+                <div className="space-y-0.5 text-center">
+                  <p className="text-xs text-zinc-500">PNG, JPG or JPEG.</p>
+                  <p className="text-xs text-zinc-500">
+                    Maximum file size up to 8MB.
+                  </p>
+                </div>
               )}
             </div>
           )}
