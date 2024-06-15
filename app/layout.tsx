@@ -4,6 +4,7 @@ import type { PropsWithChildren } from "react";
 
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
 
@@ -24,6 +25,8 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
           <div className="flex-1 flex flex-col h-full">{children}</div>
           <Footer />
         </main>
+
+        <Toaster theme="light" closeButton richColors />
       </body>
     </html>
   );
