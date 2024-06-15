@@ -8,6 +8,9 @@ declare global {
       UPLOADTHING_SECRET: string;
       UPLOADTHING_APP_ID: string;
 
+      // neon db uri
+      DATABASE_URL: string;
+
       // app base url
       NEXT_PUBLIC_BASE_URL: string;
 
