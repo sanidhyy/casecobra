@@ -1,4 +1,5 @@
 // Prices need to be in cents (to handle payments easily)
+
 export const PRODUCT_PRICES = {
   material: {
     silicone: 0,
@@ -9,3 +10,5 @@ export const PRODUCT_PRICES = {
     textured: 3_00,
   },
 } as const;
+
+export const BASE_PRICE = 14_00;
