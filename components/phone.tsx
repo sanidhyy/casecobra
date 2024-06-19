@@ -1,6 +1,7 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { type HTMLAttributes } from "react";
+
+import { cn } from "@/lib/utils";
 
 type PhoneProps = HTMLAttributes<HTMLDivElement> & {
   imgSrc: string;
@@ -38,7 +39,7 @@ export const Phone = ({
           src={imgSrc}
           alt="Overlaying phone"
           fill
-          className="object-cover"
+          className="object-cover min-w-full min-h-full"
         />
       </div>
     </div>
