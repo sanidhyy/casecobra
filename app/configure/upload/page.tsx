@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 import { Progress } from "@/components/ui/progress";
 import { useUploadThing } from "@/lib/uploadthing";
-import { cn } from "@/lib/utils";
+import { cn, generateFileName } from "@/lib/utils";
 
 const UploadPage = () => {
   const router = useRouter();
@@ -62,7 +62,13 @@ const UploadPage = () => {
   };
 
   const onDropAccepted = (acceptedFiles: File[]) => {
-    startUpload(acceptedFiles, {
+    const [file] = acceptedFiles;
+
+    // update file name
+    const updatedName = generateFileName(file.name);
+    const updatedFile = new File([file], updatedName, { type: file.type });
+
+    startUpload([updatedFile], {
       configId: undefined,
     });
 
