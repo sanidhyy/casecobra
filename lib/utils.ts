@@ -18,3 +18,13 @@ export function splitArray<T>(array: Array<T>, numParts: number) {
 
   return result;
 }
+
+export function formatPrice(price: number) {
+  const formatter = new Intl.NumberFormat("en-us", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 2,
+  });
+
+  return formatter.format(price);
+}

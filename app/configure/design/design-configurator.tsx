@@ -1,6 +1,12 @@
 "use client";
 
-import { Radio, RadioGroup } from "@headlessui/react";
+import {
+  Radio,
+  RadioGroup,
+  Label as RadioLabel,
+  Description as RadioDescription,
+} from "@headlessui/react";
+import { Check, ChevronsUpDown } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { Rnd } from "react-rnd";
@@ -16,9 +22,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { cn } from "@/lib/utils";
-import { COLORS, MODELS } from "@/validators/option-validator";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { cn, formatPrice } from "@/lib/utils";
+import {
+  COLORS,
+  FINISHES,
+  MATERIALS,
+  MODELS,
+} from "@/validators/option-validator";
 
 type DesignConfiguratorProps = {
   configId: string;
@@ -37,9 +47,13 @@ export const DesignConfigurator = ({
   const [options, setOptions] = useState<{
     color: (typeof COLORS)[number];
     model: (typeof MODELS.options)[number];
+    material: (typeof MATERIALS.options)[number];
+    finish: (typeof FINISHES.options)[number];
   }>({
     color: COLORS[0],
     model: MODELS.options[0],
+    material: MATERIALS.options[0],
+    finish: FINISHES.options[0],
   });
 
   return (
@@ -198,6 +212,71 @@ export const DesignConfigurator = ({
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
+
+                {[MATERIALS, FINISHES].map(
+                  ({ name, options: selectableOptions }) => (
+                    <RadioGroup
+                      key={name}
+                      value={options[name]}
+                      onChange={(value) => {
+                        setOptions((prevOptions) => ({
+                          ...prevOptions,
+                          [name]: value,
+                        }));
+                      }}
+                    >
+                      <Label className="capitalize">{name}</Label>
+
+                      <div className="mt-3 space-y-4">
+                        {selectableOptions.map((option) => (
+                          <Radio
+                            key={option.value}
+                            value={option}
+                            className={({ checked }) =>
+                              cn(
+                                "relative block cursor-pointer rounded-lg bg-white px-6 py-4 shadow-sm border-2 border-zinc-200 focus:outline-none ring-0 focus:ring-0 outline-none sm:flex sm:justify-between",
+                                {
+                                  "border-primary": checked,
+                                }
+                              )
+                            }
+                          >
+                            <span className="flex items-center">
+                              <span className="flex flex-col text-sm">
+                                <RadioLabel
+                                  as="span"
+                                  className="font-medium text-gray-900"
+                                >
+                                  {option.label}
+                                </RadioLabel>
+
+                                {option.description ? (
+                                  <RadioDescription
+                                    as="span"
+                                    className="text-gray-500"
+                                  >
+                                    <span className="block sm:inline">
+                                      {option.description}
+                                    </span>
+                                  </RadioDescription>
+                                ) : null}
+                              </span>
+                            </span>
+
+                            <RadioDescription
+                              as="span"
+                              className="mt-2 flex text-sm sm:ml-4 sm:mt-0 sm:flex-col sm:text-right"
+                            >
+                              <span className="font-medium text-gray-900">
+                                {formatPrice(option.price / 100)}
+                              </span>
+                            </RadioDescription>
+                          </Radio>
+                        ))}
+                      </div>
+                    </RadioGroup>
+                  )
+                )}
               </div>
             </div>
           </div>
