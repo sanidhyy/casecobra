@@ -7,10 +7,13 @@ import {
   Description as RadioDescription,
 } from "@headlessui/react";
 import { createId } from "@paralleldrive/cuid2";
+import { useMutation } from "@tanstack/react-query";
 import { ArrowRight, Check, ChevronsUpDown } from "lucide-react";
 import NextImage from "next/image";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { Rnd } from "react-rnd";
+import { toast } from "sonner";
 
 import { HandleComponent } from "@/components/handle-component";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -32,7 +35,8 @@ import {
   MODELS,
 } from "@/validators/option-validator";
 import { useUploadThing } from "@/lib/uploadthing";
-import { toast } from "sonner";
+
+import { saveConfig as saveConfigAction, type SaveConfigArgs } from "./actions";
 
 const RND_POSITION = {
   x: 150,
@@ -55,6 +59,7 @@ export const DesignConfigurator = ({
   imgDimensions,
   imgUrl,
 }: DesignConfiguratorProps) => {
+  const router = useRouter();
   const [options, setOptions] = useState<{
     color: (typeof COLORS)[number];
     model: (typeof MODELS.options)[number];
@@ -140,6 +145,21 @@ export const DesignConfigurator = ({
       });
     }
   };
+
+  const { mutate: saveConfig } = useMutation({
+    mutationKey: ["save-config"],
+    mutationFn: async (args: SaveConfigArgs) => {
+      await Promise.all([saveConfiguration(), saveConfigAction(args)]);
+    },
+    onError: () => {
+      toast.error("Something went wrong!", {
+        description: "There was an error on our end. Please try again.",
+      });
+    },
+    onSuccess: () => {
+      router.push(`/configure/preview?id=${configId}`);
+    },
+  });
 
   return (
     <div className="relative mt-20 grid grid-cols-1 lg:grid-cols-3 mb-20 pb-20">
@@ -399,7 +419,15 @@ export const DesignConfigurator = ({
               <Button
                 size="sm"
                 className="w-full"
-                onClick={() => saveConfiguration()}
+                onClick={() =>
+                  saveConfig({
+                    configId,
+                    color: options.color.value,
+                    finish: options.finish.value,
+                    material: options.material.value,
+                    model: options.model.value,
+                  })
+                }
               >
                 Continue
                 <ArrowRight className="h-4 w-4 ml-1.5 inline" />
