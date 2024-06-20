@@ -1,5 +1,6 @@
 "use client";
 
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import type { Configuration } from "@prisma/client";
 import { useMutation } from "@tanstack/react-query";
 import { ArrowRight, Check } from "lucide-react";
@@ -8,6 +9,7 @@ import { useEffect, useState } from "react";
 import Confetti from "react-dom-confetti";
 import { toast } from "sonner";
 
+import { LoginModal } from "@/components/modals/login-modal";
 import { Phone } from "@/components/phone";
 import { Button } from "@/components/ui/button";
 import { BASE_PRICE, PRODUCT_PRICES } from "@/config/products";
@@ -22,9 +24,11 @@ type DesignPreviewProps = {
 
 export const DesignPreview = ({ configuration }: DesignPreviewProps) => {
   const router = useRouter();
+  const { user } = useKindeBrowserClient();
   const [showConfetti, setShowConfetti] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  const { color, croppedImageUrl, finish, material, model } = configuration;
+  const { id, color, croppedImageUrl, finish, material, model } = configuration;
 
   const tw = COLORS.find(
     (supportedColor) => supportedColor.value === color
@@ -54,6 +58,18 @@ export const DesignPreview = ({ configuration }: DesignPreviewProps) => {
     },
   });
 
+  const handleCheckout = () => {
+    if (user) {
+      // create payment session
+      createPaymentSession({ configId: id });
+    } else {
+      // need to log in
+      localStorage.setItem("configurationId", id);
+
+      setIsLoginModalOpen(true);
+    }
+  };
+
   useEffect(() => {
     setShowConfetti(true);
   }, []);
@@ -73,6 +89,8 @@ export const DesignPreview = ({ configuration }: DesignPreviewProps) => {
           }}
         />
       </div>
+
+      <LoginModal isOpen={isLoginModalOpen} setIsOpen={setIsLoginModalOpen} />
 
       <div className="mt-20 grid grid-cols-1 text-sm sm:grid-cols-12 sm:grid-rows-1 sm:gap-x-6 md:gap-x-8 lg:gap-x-12">
         <div className="sm:col-span-4 md:col-span-3 md:row-span-2 md:row-end-2">
@@ -153,12 +171,10 @@ export const DesignPreview = ({ configuration }: DesignPreviewProps) => {
 
             <div className="mt-8 flex justify-end pb-12">
               <Button
-                disabled={true}
-                isLoading={true}
-                onClick={() =>
-                  createPaymentSession({ configId: configuration.id })
-                }
-                loadingText="Loading"
+                // disabled={true}
+                // isLoading={true}
+                // loadingText="Loading"
+                onClick={handleCheckout}
                 className="px-4 sm:px-6 lg:px-8"
               >
                 Checkout <ArrowRight className="h-4 w-4 ml-1.5 inline" />
