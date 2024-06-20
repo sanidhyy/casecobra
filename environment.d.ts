@@ -11,8 +11,9 @@ declare global {
       // neon db uri
       DATABASE_URL: string;
 
-      // stripe key
+      // stripe key and webhook
       STRIPE_SECRET_KEY: string;
+      STRIPE_WEBHOOK_SECRET: string;
 
       // app base url
       NEXT_PUBLIC_APP_BASE_URL: string;
