@@ -15,7 +15,7 @@ declare global {
       STRIPE_SECRET_KEY: string;
 
       // app base url
-      NEXT_PUBLIC_BASE_URL: string;
+      NEXT_PUBLIC_APP_BASE_URL: string;
 
       // admin email
       ADMIN_EMAIL: string;
