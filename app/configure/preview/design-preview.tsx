@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import { LoginModal } from "@/components/modals/login-modal";
 import { Phone } from "@/components/phone";
 import { Button } from "@/components/ui/button";
+import { LOCALSTORAGE_CONFIGURATION_KEY } from "@/config";
 import { BASE_PRICE, PRODUCT_PRICES } from "@/config/products";
 import { cn, formatPrice } from "@/lib/utils";
 import { COLORS, MODELS } from "@/validators/option-validator";
@@ -64,7 +65,7 @@ export const DesignPreview = ({ configuration }: DesignPreviewProps) => {
       createPaymentSession({ configId: id });
     } else {
       // need to log in
-      localStorage.setItem("configurationId", id);
+      localStorage.setItem(LOCALSTORAGE_CONFIGURATION_KEY, id);
 
       setIsLoginModalOpen(true);
     }

@@ -26,6 +26,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  EXPORT_IMAGE_MIMETYPE,
+  EXPORT_IMAGE_TYPE,
+  RND_POSITION,
+} from "@/config";
 import { BASE_PRICE } from "@/config/products";
 import { base64ToBlob, cn, formatPrice } from "@/lib/utils";
 import {
@@ -37,13 +42,6 @@ import {
 import { useUploadThing } from "@/lib/uploadthing";
 
 import { saveConfig as saveConfigAction, type SaveConfigArgs } from "./actions";
-
-const RND_POSITION = {
-  x: 150,
-  y: 205,
-};
-
-const EXPORT_IMAGE_MIMETYPE = "image/png";
 
 type DesignConfiguratorProps = {
   configId: string;
@@ -133,7 +131,7 @@ export const DesignConfigurator = ({
       const blob = base64ToBlob(base64Data, EXPORT_IMAGE_MIMETYPE);
 
       // create new file
-      const file = new File([blob], `${createId()}.png`, {
+      const file = new File([blob], `${createId()}.${EXPORT_IMAGE_TYPE}`, {
         type: EXPORT_IMAGE_MIMETYPE,
       });
 
