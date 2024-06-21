@@ -1,5 +1,6 @@
 import { createId } from "@paralleldrive/cuid2";
 import { type ClassValue, clsx } from "clsx";
+import type { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -50,4 +51,37 @@ export function generateFileName(originalName: string) {
   const extension = originalName.split(".").pop();
 
   return `${id}.${extension}`;
+}
+
+type SiteMetadata = {
+  title?: string;
+  description?: string;
+  image?: string;
+};
+
+export function constructMetadata({
+  title = "CaseCobra - Custom high-quality phones cases",
+  description = "Create custom high-quality phone cases in seconds.",
+  image = "/thumbnail.png",
+}: SiteMetadata = {}): Metadata {
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: image,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+      creator: "@TechnicalShubam",
+    },
+  };
 }
