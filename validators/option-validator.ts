@@ -4,6 +4,8 @@
 // bg-zinc-900 border-zinc-900
 // bg-rose-950 border-rose-950
 
+import type { OrderStatus } from "@prisma/client";
+
 import { PRODUCT_PRICES } from "@/config/products";
 
 export const COLORS = [
@@ -89,3 +91,9 @@ export const FINISHES = {
     },
   ],
 } as const;
+
+export const LABEL_MAP: Record<keyof typeof OrderStatus, string> = {
+  awaiting_shipment: "Awaiting Shipment",
+  fullfilled: "Fullfilled",
+  shipped: "Shipped",
+};
