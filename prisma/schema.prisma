@@ -52,12 +52,12 @@ model Configuration {
   id              String        @id @default(cuid())
   width           Int
   height          Int
-  imgUrl          String
+  imgUrl          String        @unique
   color           CaseColor?
   model           PhoneModel?
   material        CaseMaterial?
   finish          CaseFinish?
-  croppedImageUrl String?
+  croppedImageUrl String?       @unique
 
   Order Order[]
 }
