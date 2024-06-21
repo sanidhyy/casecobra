@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+import { Loader } from "@/components/loader";
+
 import { ThankYou } from "./thank-you";
 
 type ThankYouPageProps = {
@@ -15,7 +17,7 @@ const ThankYouPage = ({ searchParams }: ThankYouPageProps) => {
   if (!orderId) notFound();
 
   return (
-    <Suspense fallback={<></>}>
+    <Suspense fallback={<Loader />}>
       <ThankYou orderId={orderId} />
     </Suspense>
   );
