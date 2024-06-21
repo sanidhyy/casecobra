@@ -26,6 +26,16 @@ export const appFileRouter = {
       const { height, width } = imgMetadata;
 
       if (!configId) {
+        // checking for existing configuration since uploadthing is calling onUploadComplete two times
+        const existingConfiguration = await db.configuration.findUnique({
+          where: {
+            imgUrl: file.url,
+          },
+        });
+
+        if (existingConfiguration)
+          return { configId: existingConfiguration.id };
+
         const configuration = await db.configuration.create({
           data: {
             imgUrl: file.url,
