@@ -44,6 +44,25 @@ export const Navbar = async () => {
                     <ArrowRight className="ml-1.5 h-5 w-5" />
                   </Link>
                 </Button>
+
+                <div
+                  aria-hidden
+                  className="h-8 w-px bg-zinc-200 hidden sm:block"
+                />
+
+                <Link
+                  href={SOURCE_CODE}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  title="Source Code"
+                >
+                  <Image
+                    src="/github.png"
+                    alt="GitHub"
+                    height={25}
+                    width={25}
+                  />
+                </Link>
               </>
             ) : (
               <>
