@@ -144,7 +144,7 @@ export const DesignConfigurator = ({
     }
   };
 
-  const { mutate: saveConfig } = useMutation({
+  const { mutate: saveConfig, isPending } = useMutation({
     mutationKey: ["save-config"],
     mutationFn: async (args: SaveConfigArgs) => {
       await Promise.all([saveConfiguration(), saveConfigAction(args)]);
@@ -417,6 +417,9 @@ export const DesignConfigurator = ({
               <Button
                 size="sm"
                 className="w-full"
+                isLoading={isPending}
+                disabled={isPending}
+                loadingText="Saving"
                 onClick={() =>
                   saveConfig({
                     configId,
