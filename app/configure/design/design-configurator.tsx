@@ -281,7 +281,7 @@ export const DesignConfigurator = ({
                             "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 active:ring-0 focus:ring-0 active:outline-none border-2 border-transparent focus:outline-primary",
                             {
                               [`border-${color.tw}`]: checked && !focus,
-                              "cursor-default": isPending,
+                              "cursor-not-allowed": isPending,
                             }
                           )
                         }
@@ -371,7 +371,7 @@ export const DesignConfigurator = ({
                                 "relative block cursor-pointer rounded-lg bg-white px-6 py-4 shadow-sm border-2 border-zinc-200 focus:outline-none ring-0 focus:ring-0 outline-none sm:flex sm:justify-between focus:outline-dotted focus:outline-primary",
                                 {
                                   "border-primary": checked && !focus,
-                                  "opacity-50": isPending,
+                                  "opacity-50 cursor-not-allowed": isPending,
                                 }
                               )
                             }
