@@ -1,4 +1,8 @@
 "use client";
+// Don't forget to add color here as a comment after adding it in `COLORS` array.
+// bg-blue-950 border-blue-950
+// bg-rose-950 border-rose-950
+// bg-zinc-900 border-zinc-900
 
 import {
   Radio,
@@ -32,6 +36,7 @@ import {
   RND_POSITION,
 } from "@/config";
 import { BASE_PRICE } from "@/config/products";
+import { useUploadThing } from "@/lib/uploadthing";
 import { base64ToBlob, cn, formatPrice } from "@/lib/utils";
 import {
   COLORS,
@@ -39,7 +44,6 @@ import {
   MATERIALS,
   MODELS,
 } from "@/validators/option-validator";
-import { useUploadThing } from "@/lib/uploadthing";
 
 import { saveConfig as saveConfigAction, type SaveConfigArgs } from "./actions";
 
@@ -214,11 +218,13 @@ export const DesignConfigurator = ({
           }}
           lockAspectRatio
           resizeHandleComponent={{
-            bottomRight: <HandleComponent />,
-            topRight: <HandleComponent />,
-            bottomLeft: <HandleComponent />,
-            topLeft: <HandleComponent />,
+            bottomRight: <HandleComponent isPending={isPending} />,
+            topRight: <HandleComponent isPending={isPending} />,
+            bottomLeft: <HandleComponent isPending={isPending} />,
+            topLeft: <HandleComponent isPending={isPending} />,
           }}
+          disableDragging={isPending}
+          enableResizing={!isPending}
           className="absolute z-20 border-[3px] border-primary"
         >
           <div className="relative w-full h-full">
@@ -256,19 +262,26 @@ export const DesignConfigurator = ({
                       color: newColor,
                     }));
                   }}
+                  disabled={isPending}
                 >
                   <Label>Color: {options.color.label}</Label>
 
-                  <div className="mt-3 flex items-center space-x-3">
+                  <div
+                    className={cn(
+                      "mt-3 flex items-center space-x-3",
+                      isPending && "opacity-50"
+                    )}
+                  >
                     {COLORS.map((color) => (
                       <Radio
                         key={color.label}
                         value={color}
-                        className={({ checked }) =>
+                        className={({ checked, focus }) =>
                           cn(
-                            "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 active:ring-0 focus:ring-0 active:outline-none focus:outline-none border-2 border-transparent",
+                            "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 active:ring-0 focus:ring-0 active:outline-none border-2 border-transparent focus:outline-primary",
                             {
-                              [`border-${color.tw}`]: checked,
+                              [`border-${color.tw}`]: checked && !focus,
+                              "cursor-default": isPending,
                             }
                           )
                         }
@@ -289,7 +302,7 @@ export const DesignConfigurator = ({
                   <Label>Model</Label>
 
                   <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
+                    <DropdownMenuTrigger disabled={isPending} asChild>
                       <Button
                         variant="outline"
                         role="combobox"
@@ -344,6 +357,7 @@ export const DesignConfigurator = ({
                           [name]: value,
                         }));
                       }}
+                      disabled={isPending}
                     >
                       <Label className="capitalize">{name}</Label>
 
@@ -352,11 +366,12 @@ export const DesignConfigurator = ({
                           <Radio
                             key={option.value}
                             value={option}
-                            className={({ checked }) =>
+                            className={({ checked, focus }) =>
                               cn(
-                                "relative block cursor-pointer rounded-lg bg-white px-6 py-4 shadow-sm border-2 border-zinc-200 focus:outline-none ring-0 focus:ring-0 outline-none sm:flex sm:justify-between",
+                                "relative block cursor-pointer rounded-lg bg-white px-6 py-4 shadow-sm border-2 border-zinc-200 focus:outline-none ring-0 focus:ring-0 outline-none sm:flex sm:justify-between focus:outline-dotted focus:outline-primary",
                                 {
-                                  "border-primary": checked,
+                                  "border-primary": checked && !focus,
+                                  "opacity-50": isPending,
                                 }
                               )
                             }
