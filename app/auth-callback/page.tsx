@@ -1,7 +1,6 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -38,7 +37,12 @@ const AuthCallbackPage = () => {
     }
   }
 
-  return <Loader />;
+  return (
+    <Loader
+      title="Logging you in..."
+      description="You will be redirected automatically."
+    />
+  );
 };
 
 export default AuthCallbackPage;

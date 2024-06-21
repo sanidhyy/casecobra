@@ -1,8 +1,8 @@
 // !! Needed for the support of dynamic tailwindcss classnames.
 // Don't forget to add color here as a comment after adding it in `COLORS` array.
 // bg-blue-950 border-blue-950
-// bg-zinc-900 border-zinc-900
 // bg-rose-950 border-rose-950
+// bg-zinc-900 border-zinc-900
 
 import type { OrderStatus } from "@prisma/client";
 
