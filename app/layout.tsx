@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Recursive } from "next/font/google";
 import type { PropsWithChildren } from "react";
 
@@ -11,6 +11,11 @@ import { constructMetadata } from "@/lib/utils";
 import "./globals.css";
 
 const recursive = Recursive({ subsets: ["latin"] });
+
+export const viewport: Viewport = {
+  themeColor: "#171717",
+  colorScheme: "light",
+};
 
 export const metadata: Metadata = constructMetadata();
 
