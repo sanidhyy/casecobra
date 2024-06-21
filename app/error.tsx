@@ -1,10 +1,11 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 const ErrorPage = ({
   error,
@@ -18,7 +19,7 @@ const ErrorPage = ({
   }, [error]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-[100dvh] px-4 md:px-6">
+    <div className="flex flex-col items-center justify-center h-[70dvh] px-4 md:px-6">
       <Image
         src="/snake-3.png"
         width={200}
@@ -35,9 +36,16 @@ const ErrorPage = ({
         <div className="flex items-center justify-center gap-2">
           <Button onClick={() => reset()}>Try Again</Button>
 
-          <Button asChild>
-            <Link href="/">Go Home</Link>
-          </Button>
+          <Link
+            href="/"
+            className={buttonVariants({
+              size: "lg",
+              variant: "link",
+            })}
+          >
+            Go Home
+            <ArrowRight className="h-4 w-4 ml-1.5 inline" />
+          </Link>
         </div>
       </div>
     </div>
