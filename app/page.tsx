@@ -321,7 +321,8 @@ const HomePage = () => {
             <div className="flex justify-center">
               <Button size="lg" className="mx-auto mt-8" asChild>
                 <Link href="/configure/upload">
-                  Create your case now <ArrowRight className="h-4 w-4 ml-1.5" />
+                  Create your case now{" "}
+                  <ArrowRight className="h-4 w-4 ml-1.5 inline" />
                 </Link>
               </Button>
             </div>
