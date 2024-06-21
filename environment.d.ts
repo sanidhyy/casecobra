@@ -15,6 +15,10 @@ declare global {
       STRIPE_SECRET_KEY: string;
       STRIPE_WEBHOOK_SECRET: string;
 
+      // resend api key and sender email
+      RESEND_API_KEY: string;
+      RESEND_SENDER_EMAIL: string;
+
       // app base url
       NEXT_PUBLIC_APP_BASE_URL: string;
 
