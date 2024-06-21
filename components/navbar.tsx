@@ -1,8 +1,10 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { SOURCE_CODE } from "@/config";
 
 import { MaxWidthWrapper } from "./max-width-wrapper";
 
@@ -45,11 +47,11 @@ export const Navbar = async () => {
               </>
             ) : (
               <>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" asChild>
                   <Link href="/api/auth/register">Sign up</Link>
                 </Button>
 
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" asChild>
                   <Link href="/api/auth/login">Login</Link>
                 </Button>
 
@@ -67,6 +69,25 @@ export const Navbar = async () => {
                     <ArrowRight className="ml-1.5 h-5 w-5" />
                   </Link>
                 </Button>
+
+                <div
+                  aria-hidden
+                  className="h-8 w-px bg-zinc-200 hidden sm:block"
+                />
+
+                <Link
+                  href={SOURCE_CODE}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  title="Source Code"
+                >
+                  <Image
+                    src="/github.png"
+                    alt="GitHub"
+                    height={25}
+                    width={25}
+                  />
+                </Link>
               </>
             )}
           </div>

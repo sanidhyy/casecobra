@@ -14,3 +14,5 @@ export const EXPORT_IMAGE_TYPE = "png" as const;
 // dashboard goals
 export const WEEKLY_GOAL = 500 as const;
 export const MONTHLY_GOAL = 2500 as const;
+
+export const SOURCE_CODE = "https://github.com/sanidhyy/casecobra";
