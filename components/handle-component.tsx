@@ -9,7 +9,7 @@ export const HandleComponent = ({
     <div
       aria-hidden
       className={cn(
-        "w-5 h-5 rounded-full shadow border bg-white border-zinc-200 transition hover:bg-primary",
+        "h-5 w-5 rounded-full border border-zinc-200 bg-white shadow transition hover:bg-primary",
         isPending && "opacity-0"
       )}
     />

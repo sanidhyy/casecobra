@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 const NotFoundPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-[70dvh] px-4 md:px-6">
+    <div className="flex h-[70dvh] flex-col items-center justify-center px-4 md:px-6">
       <Image
         src="/snake-3.png"
         width={200}

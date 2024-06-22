@@ -164,12 +164,12 @@ export const DesignConfigurator = ({
   });
 
   return (
-    <div className="relative mt-20 grid grid-cols-1 lg:grid-cols-3 mb-20 pb-20">
+    <div className="relative mb-20 mt-20 grid grid-cols-1 pb-20 lg:grid-cols-3">
       <div
         ref={containerRef}
-        className="relative h-[37.5rem] overflow-hidden col-span-2 w-full max-w-4xl flex items-center justify-center rounded-lg border-2 border-dashed border-gray-300 p-12 text-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        className="relative col-span-2 flex h-[37.5rem] w-full max-w-4xl items-center justify-center overflow-hidden rounded-lg border-2 border-dashed border-gray-300 p-12 text-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
       >
-        <div className="relative w-60 bg-opacity-50 pointer-events-none aspect-[896_/_1831]">
+        <div className="pointer-events-none relative aspect-[896_/_1831] w-60 bg-opacity-50">
           <AspectRatio
             ref={phoneCaseRef}
             ratio={896 / 1831}
@@ -185,12 +185,12 @@ export const DesignConfigurator = ({
 
           <div
             aria-hidden
-            className="absolute z-40 inset-0 left-[3px] top-px right-[3px] bottom-px rounded-[32px] shadow-[0_0_0_99999px_rgba(229,_231,_235,_0.6)]"
+            className="absolute inset-0 bottom-px left-[3px] right-[3px] top-px z-40 rounded-[32px] shadow-[0_0_0_99999px_rgba(229,_231,_235,_0.6)]"
           />
 
           <div
             className={cn(
-              "absolute inset-0 left-[3px] top-px right-[3px] bottom-px rounded-[32px]",
+              "absolute inset-0 bottom-px left-[3px] right-[3px] top-px rounded-[32px]",
               `bg-${options.color.tw}`
             )}
           />
@@ -227,7 +227,7 @@ export const DesignConfigurator = ({
           enableResizing={!isPending}
           className="absolute z-20 border-[3px] border-primary"
         >
-          <div className="relative w-full h-full">
+          <div className="relative h-full w-full">
             <NextImage
               src={imgUrl}
               alt="uploaded image"
@@ -238,21 +238,21 @@ export const DesignConfigurator = ({
         </Rnd>
       </div>
 
-      <div className="h-[37.5rem] w-full col-span-full lg:col-span-1 flex flex-col bg-white">
+      <div className="col-span-full flex h-[37.5rem] w-full flex-col bg-white lg:col-span-1">
         <ScrollArea className="relative flex-1 overflow-auto">
           <div
             aria-hidden
-            className="absolute z-10 inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white pointer-events-none"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-12 bg-gradient-to-t from-white"
           />
 
           <div className="px-8 pb-12 pt-8">
-            <h2 className="tracking-tight font-bold text-3xl">
+            <h2 className="text-3xl font-bold tracking-tight">
               Customize your case
             </h2>
 
-            <div aria-hidden className="w-full h-px bg-zinc-200 my-6" />
+            <div aria-hidden className="my-6 h-px w-full bg-zinc-200" />
 
-            <div className="relative mt-4 h-full flex flex-col justify-between">
+            <div className="relative mt-4 flex h-full flex-col justify-between">
               <div className="flex flex-col gap-6">
                 <RadioGroup
                   value={options.color}
@@ -278,7 +278,7 @@ export const DesignConfigurator = ({
                         value={color}
                         className={({ checked, focus }) =>
                           cn(
-                            "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 active:ring-0 focus:ring-0 active:outline-none border-2 border-transparent focus:outline-primary",
+                            "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full border-2 border-transparent p-0.5 focus:outline-primary focus:ring-0 active:outline-none active:ring-0",
                             {
                               [`border-${color.tw}`]: checked && !focus,
                               "cursor-not-allowed": isPending,
@@ -298,7 +298,7 @@ export const DesignConfigurator = ({
                   </div>
                 </RadioGroup>
 
-                <div className="relative flex flex-col gap-3 w-full">
+                <div className="relative flex w-full flex-col gap-3">
                   <Label>Model</Label>
 
                   <DropdownMenu>
@@ -318,7 +318,7 @@ export const DesignConfigurator = ({
                         <DropdownMenuItem
                           key={model.value}
                           className={cn(
-                            "flex text-sm gap-1 items-center p-1.5 cursor-default hover:bg-zinc-100",
+                            "flex cursor-default items-center gap-1 p-1.5 text-sm hover:bg-zinc-100",
                             {
                               "bg-primary-foreground text-primary":
                                 model.value === options.model.value,
@@ -368,10 +368,10 @@ export const DesignConfigurator = ({
                             value={option}
                             className={({ checked, focus }) =>
                               cn(
-                                "relative block cursor-pointer rounded-lg bg-white px-6 py-4 shadow-sm border-2 border-zinc-200 focus:outline-none ring-0 focus:ring-0 outline-none sm:flex sm:justify-between focus:outline-dotted focus:outline-primary",
+                                "relative block cursor-pointer rounded-lg border-2 border-zinc-200 bg-white px-6 py-4 shadow-sm outline-none ring-0 focus:outline-none focus:outline-dotted focus:outline-primary focus:ring-0 sm:flex sm:justify-between",
                                 {
                                   "border-primary": checked && !focus,
-                                  "opacity-50 cursor-not-allowed": isPending,
+                                  "cursor-not-allowed opacity-50": isPending,
                                 }
                               )
                             }
@@ -417,12 +417,12 @@ export const DesignConfigurator = ({
           </div>
         </ScrollArea>
 
-        <div className="w-full px-8 h-16 bg-white">
+        <div className="h-16 w-full bg-white px-8">
           <div aria-hidden className="h-px w-full bg-zinc-200" />
 
-          <div className="w-full h-full flex justify-end items-center">
-            <div className="w-full flex gap-6 items-center">
-              <p className="font-medium whitespace-nowrap">
+          <div className="flex h-full w-full items-center justify-end">
+            <div className="flex w-full items-center gap-6">
+              <p className="whitespace-nowrap font-medium">
                 {formatPrice(
                   (BASE_PRICE + options.finish.price + options.material.price) /
                     100
@@ -446,7 +446,7 @@ export const DesignConfigurator = ({
                 }
               >
                 Continue
-                <ArrowRight className="h-4 w-4 ml-1.5 inline" />
+                <ArrowRight className="ml-1.5 inline h-4 w-4" />
               </Button>
             </div>
           </div>

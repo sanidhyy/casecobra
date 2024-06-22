@@ -18,11 +18,11 @@ export const ThankYou = ({ orderId }: { orderId: string }) => {
 
   if (data === undefined) {
     return (
-      <div className="w-full mt-24 flex justify-center">
+      <div className="mt-24 flex w-full justify-center">
         <div className="flex flex-col items-center gap-2">
           <Loader2 className="h-8 w-8 animate-spin text-zinc-500" />
 
-          <h3 className="font-semibold text-xl">Loading your order...</h3>
+          <h3 className="text-xl font-semibold">Loading your order...</h3>
           <p>This won&apos;t take long.</p>
         </div>
       </div>
@@ -31,11 +31,11 @@ export const ThankYou = ({ orderId }: { orderId: string }) => {
 
   if (data === false) {
     return (
-      <div className="w-full mt-24 flex justify-center">
+      <div className="mt-24 flex w-full justify-center">
         <div className="flex flex-col items-center gap-2">
           <Loader2 className="h-8 w-8 animate-spin text-zinc-500" />
 
-          <h3 className="font-semibold text-xl">Verifying your payment...</h3>
+          <h3 className="text-xl font-semibold">Verifying your payment...</h3>
           <p>This might take a moment.</p>
         </div>
       </div>
@@ -78,7 +78,7 @@ export const ThankYou = ({ orderId }: { orderId: string }) => {
           </div>
         </div>
 
-        <div className="flex space-x-6 overflow-hidden mt-4 rounded-xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
+        <div className="mt-4 flex space-x-6 overflow-hidden rounded-xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
           <PhonePreview croppedImageUrl={croppedImageUrl!} color={color!} />
         </div>
 
@@ -132,7 +132,7 @@ export const ThankYou = ({ orderId }: { orderId: string }) => {
           </div>
         </div>
 
-        <div className="space-y-6 borde-t border-zinc-200 pt-10 text-sm">
+        <div className="borde-t space-y-6 border-zinc-200 pt-10 text-sm">
           <div className="flex justify-between">
             <p className="font-medium text-zinc-900">Subtotal</p>
             <p className="text-zinc-700">{formatPrice(amount)}</p>

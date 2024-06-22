@@ -60,18 +60,18 @@ export const PhonePreview = ({ croppedImageUrl, color }: PhonePreviewProps) => {
           alt="User uploaded image"
           width={renderedDimensions.width / (3000 / 637)}
           className={cn(
-            "phone-skew relative z-20 rounded-t-[15px] rounded-b-[10px] md:rounded-t-[30px] md:rounded-b-[20px]",
+            "phone-skew relative z-20 rounded-b-[10px] rounded-t-[15px] md:rounded-b-[20px] md:rounded-t-[30px]",
             caseBackgroundColor
           )}
         />
       </div>
 
-      <div className="relative h-full w-full z-40">
+      <div className="relative z-40 h-full w-full">
         <Image
           src="/clearphone.png"
           alt="Phone"
           fill
-          className="pointer-events-none h-full w-full antialiased rounded-md"
+          className="pointer-events-none h-full w-full rounded-md antialiased"
         />
       </div>
     </AspectRatio>

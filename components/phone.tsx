@@ -17,7 +17,7 @@ export const Phone = ({
   return (
     <div
       className={cn(
-        "relative pointer-events-none z-50 overflow-hidden",
+        "pointer-events-none relative z-50 overflow-hidden",
         className
       )}
       {...props}
@@ -34,12 +34,12 @@ export const Phone = ({
         height={1831}
       />
 
-      <div className="absolute -z-10 inset-0">
+      <div className="absolute inset-0 -z-10">
         <Image
           src={imgSrc}
           alt="Overlaying phone"
           fill
-          className="object-cover min-w-full min-h-full"
+          className="min-h-full min-w-full object-cover"
         />
       </div>
     </div>

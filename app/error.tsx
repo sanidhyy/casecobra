@@ -19,7 +19,7 @@ const ErrorPage = ({
   }, [error]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-[70dvh] px-4 md:px-6">
+    <div className="flex h-[70dvh] flex-col items-center justify-center px-4 md:px-6">
       <Image
         src="/snake-3.png"
         width={200}
@@ -44,7 +44,7 @@ const ErrorPage = ({
             })}
           >
             Go Home
-            <ArrowRight className="h-4 w-4 ml-1.5 inline" />
+            <ArrowRight className="ml-1.5 inline h-4 w-4" />
           </Link>
         </div>
       </div>

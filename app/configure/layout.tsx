@@ -5,7 +5,7 @@ import { Steps } from "@/components/steps";
 
 const ConfigureLayout = ({ children }: PropsWithChildren) => {
   return (
-    <MaxWidthWrapper className="flex-1 flex flex-col">
+    <MaxWidthWrapper className="flex flex-1 flex-col">
       <Steps />
 
       {children}

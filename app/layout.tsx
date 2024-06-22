@@ -25,8 +25,8 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
       <body className={recursive.className}>
         <Navbar />
 
-        <main className="flex grainy-light flex-col min-h-[calc(100vh_-_3.5rem_-_1px)]">
-          <div className="flex-1 flex flex-col h-full">
+        <main className="grainy-light flex min-h-[calc(100vh_-_3.5rem_-_1px)] flex-col">
+          <div className="flex h-full flex-1 flex-col">
             <Providers>{children}</Providers>
           </div>
           <Footer />

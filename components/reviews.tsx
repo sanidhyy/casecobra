@@ -173,7 +173,7 @@ export const Reviews = () => {
         width={193}
         height={143}
         alt="What people are buying"
-        className="absolute select-none hidden xl:block -left-32 top-1/3"
+        className="absolute -left-32 top-1/3 hidden select-none xl:block"
       />
 
       <ReviewGrid />
