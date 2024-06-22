@@ -97,6 +97,7 @@ casecobra/
   |- .env.example
   |- .eslintrc.json
   |- .gitignore
+  |- .prettierrc.json
   |- bun.lockb
   |- components.json
   |- environment.d.ts
@@ -318,14 +319,17 @@ Useful resources and dependencies that are used in CaseCobra.
 - [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
 - [uploadthing](https://www.npmjs.com/package/uploadthing): ^6.12.0
 - [zod](https://www.npmjs.com/package/zod): ^3.23.8
-- [typescript](https://www.npmjs.com/package/typescript): ^5
 - [@types/node](https://www.npmjs.com/package/@types/node): ^20
 - [@types/react](https://www.npmjs.com/package/@types/react): ^18
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^18
-- [postcss](https://www.npmjs.com/package/postcss): ^8
-- [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
 - [eslint](https://www.npmjs.com/package/eslint): ^8
 - [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 14.2.4
+- [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports): ^4.0.0
+- [postcss](https://www.npmjs.com/package/postcss): ^8
+- [prettier](https://www.npmjs.com/package/prettier): ^3.3.2
+- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.6.5
+- [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
+- [typescript](https://www.npmjs.com/package/typescript): ^5
 
 ## :heart: Sponsor Me
 
