@@ -54,6 +54,10 @@
     @apply border-border;
   }
 
+  *::selection {
+    @apply bg-green-600 text-white;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
