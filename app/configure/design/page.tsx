@@ -5,13 +5,11 @@ import { db } from "@/db";
 import { DesignConfigurator } from "./design-configurator";
 
 type DesignPageProps = {
-  searchParams: {
-    [key: string]: string | string[] | undefined;
-  };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 const DesignPage = async ({ searchParams }: DesignPageProps) => {
-  const { id } = searchParams;
+  const { id } = await searchParams;
 
   if (!id || typeof id !== "string") notFound();
 
