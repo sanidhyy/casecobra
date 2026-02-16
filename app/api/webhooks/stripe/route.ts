@@ -12,7 +12,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: NextRequest) {
   try {
     const body = await req.text();
-    const signature = headers().get("stripe-signature");
+    const signature = (await headers()).get("stripe-signature");
 
     if (!signature)
       return new NextResponse("Invalid signature.", { status: 400 });
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
       if (!userId || !orderId) throw new Error("Invalid requests metadata.");
 
       const billingAddress = session.customer_details!.address;
-      const shippingAddress = session.shipping_details!.address;
+      const shippingAddress = session.customer_details!.address;
 
       const updatedOrder = await db.order.update({
         where: {
