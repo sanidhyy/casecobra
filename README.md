@@ -48,9 +48,6 @@ Here is the folder structure of this app.
 casecobra/
   |- app/
     |-- api/
-        |--- auth/[kindeAuth]/
-        |--- uploadthing/
-        |--- webhooks/stripe/
     |-- auth-callback/
     |-- configure/
     |-- dashboard/
@@ -94,8 +91,8 @@ casecobra/
   |- public/
   |- validators/
     |-- option-validator.ts
-  |- .env
   |- .env.example
+  |- .env/.env.local
   |- .eslintrc.json
   |- .gitignore
   |- .prettierrc.json
@@ -104,9 +101,10 @@ casecobra/
   |- environment.d.ts
   |- next.config.mjs
   |- package.json
-  |- postcss.config.js
+  |- postcss.config.mjs
   |- tailwind.config.ts
   |- tsconfig.json
+  |- vercel.ts
 ```
 <!--- FOLDER_STRUCTURE_END --->
 
@@ -287,52 +285,54 @@ You might encounter some bugs while using this app. You are more than welcome to
 Useful resources and dependencies that are used in CaseCobra.
 
 <!--- DEPENDENCIES_START --->
-- [@headlessui/react](https://www.npmjs.com/package/@headlessui/react): ^2.0.4
-- [@kinde-oss/kinde-auth-nextjs](https://www.npmjs.com/package/@kinde-oss/kinde-auth-nextjs): ^2.2.13
-- [@paralleldrive/cuid2](https://www.npmjs.com/package/@paralleldrive/cuid2): ^2.2.2
+- [@headlessui/react](https://www.npmjs.com/package/@headlessui/react): ^2.2.9
+- [@kinde-oss/kinde-auth-nextjs](https://www.npmjs.com/package/@kinde-oss/kinde-auth-nextjs): ^2.11.0
+- [@paralleldrive/cuid2](https://www.npmjs.com/package/@paralleldrive/cuid2): ^2.3.1
 - [@prisma/client](https://www.npmjs.com/package/@prisma/client): ^5.15.0
-- [@radix-ui/react-aspect-ratio](https://www.npmjs.com/package/@radix-ui/react-aspect-ratio): ^1.0.3
-- [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.0
-- [@radix-ui/react-dropdown-menu](https://www.npmjs.com/package/@radix-ui/react-dropdown-menu): ^2.0.6
-- [@radix-ui/react-icons](https://www.npmjs.com/package/@radix-ui/react-icons): ^1.3.0
-- [@radix-ui/react-label](https://www.npmjs.com/package/@radix-ui/react-label): ^2.0.2
-- [@radix-ui/react-progress](https://www.npmjs.com/package/@radix-ui/react-progress): ^1.0.3
-- [@radix-ui/react-scroll-area](https://www.npmjs.com/package/@radix-ui/react-scroll-area): ^1.0.5
-- [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.0.2
-- [@react-email/components](https://www.npmjs.com/package/@react-email/components): ^0.0.19
-- [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.45.1
+- [@radix-ui/react-aspect-ratio](https://www.npmjs.com/package/@radix-ui/react-aspect-ratio): ^1.1.8
+- [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.15
+- [@radix-ui/react-dropdown-menu](https://www.npmjs.com/package/@radix-ui/react-dropdown-menu): ^2.1.16
+- [@radix-ui/react-icons](https://www.npmjs.com/package/@radix-ui/react-icons): ^1.3.2
+- [@radix-ui/react-label](https://www.npmjs.com/package/@radix-ui/react-label): ^2.1.8
+- [@radix-ui/react-progress](https://www.npmjs.com/package/@radix-ui/react-progress): ^1.1.8
+- [@radix-ui/react-scroll-area](https://www.npmjs.com/package/@radix-ui/react-scroll-area): ^1.2.10
+- [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.2.4
+- [@react-email/components](https://www.npmjs.com/package/@react-email/components): ^1.0.7
+- [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.90.21
+- [@types/node](https://www.npmjs.com/package/@types/node): ^20.19.33
+- [@types/react](https://www.npmjs.com/package/@types/react): ^18.3.28
+- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^18.3.7
 - [@uploadthing/react](https://www.npmjs.com/package/@uploadthing/react): ^6.6.0
-- [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.0
+- [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.0.33
+- [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
 - [clsx](https://www.npmjs.com/package/clsx): ^2.1.1
-- [framer-motion](https://www.npmjs.com/package/framer-motion): ^11.2.10
-- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.394.0
-- [next](https://www.npmjs.com/package/next): 14.2.4
-- [next-themes](https://www.npmjs.com/package/next-themes): ^0.3.0
-- [prisma](https://www.npmjs.com/package/prisma): ^5.15.0
-- [react](https://www.npmjs.com/package/react): ^18
-- [react-dom](https://www.npmjs.com/package/react-dom): ^18
-- [react-dom-confetti](https://www.npmjs.com/package/react-dom-confetti): ^0.2.0
-- [react-dropzone](https://www.npmjs.com/package/react-dropzone): ^14.2.3
-- [react-rnd](https://www.npmjs.com/package/react-rnd): ^10.4.11
-- [resend](https://www.npmjs.com/package/resend): ^3.3.0
-- [sharp](https://www.npmjs.com/package/sharp): ^0.32.6
-- [sonner](https://www.npmjs.com/package/sonner): ^1.5.0
-- [stripe](https://www.npmjs.com/package/stripe): ^15.12.0
-- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^2.3.0
-- [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
-- [uploadthing](https://www.npmjs.com/package/uploadthing): ^6.12.0
-- [zod](https://www.npmjs.com/package/zod): ^3.23.8
-- [@types/node](https://www.npmjs.com/package/@types/node): ^20
-- [@types/react](https://www.npmjs.com/package/@types/react): ^18
-- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^18
 - [eslint](https://www.npmjs.com/package/eslint): ^8
 - [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 14.2.4
 - [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports): ^4.0.0
+- [framer-motion](https://www.npmjs.com/package/framer-motion): ^11.18.2
+- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.564.0
+- [next](https://www.npmjs.com/package/next): 15.5.10
+- [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
 - [postcss](https://www.npmjs.com/package/postcss): ^8
-- [prettier](https://www.npmjs.com/package/prettier): ^3.3.2
-- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.6.5
+- [prettier](https://www.npmjs.com/package/prettier): ^3.8.1
+- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.6.14
+- [prisma](https://www.npmjs.com/package/prisma): ^5.15.0
+- [react](https://www.npmjs.com/package/react): ^19.2.4
+- [react-dom](https://www.npmjs.com/package/react-dom): ^19.2.4
+- [react-dom-confetti](https://www.npmjs.com/package/react-dom-confetti): ^0.2.0
+- [react-dropzone](https://www.npmjs.com/package/react-dropzone): ^14.4.1
+- [react-rnd](https://www.npmjs.com/package/react-rnd): ^10.5.2
+- [resend](https://www.npmjs.com/package/resend): ^3.5.0
+- [sharp](https://www.npmjs.com/package/sharp): ^0.34.5
+- [sonner](https://www.npmjs.com/package/sonner): ^1.7.4
+- [stripe](https://www.npmjs.com/package/stripe): ^20.3.1
+- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^2.3.0
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
-- [typescript](https://www.npmjs.com/package/typescript): ^5
+- [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
+- [typescript](https://www.npmjs.com/package/typescript): ^5.9.3
+- [uploadthing](https://www.npmjs.com/package/uploadthing): ^6.12.0
+- [zod](https://www.npmjs.com/package/zod): ^3.25.76
+
 <!--- DEPENDENCIES_END --->
 
 ## :heart: Sponsor Me
