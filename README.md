@@ -44,7 +44,6 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
-
 ```bash
 casecobra/
   |- app/
@@ -107,7 +106,6 @@ casecobra/
   |- tsconfig.json
   |- vercel.ts
 ```
-
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
@@ -287,7 +285,6 @@ You might encounter some bugs while using this app. You are more than welcome to
 Useful resources and dependencies that are used in CaseCobra.
 
 <!--- DEPENDENCIES_START --->
-
 - [@headlessui/react](https://www.npmjs.com/package/@headlessui/react): ^2.2.9
 - [@kinde-oss/kinde-auth-nextjs](https://www.npmjs.com/package/@kinde-oss/kinde-auth-nextjs): ^2.11.0
 - [@paralleldrive/cuid2](https://www.npmjs.com/package/@paralleldrive/cuid2): ^2.3.1
