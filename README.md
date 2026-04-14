@@ -311,7 +311,7 @@ Useful resources and dependencies that are used in CaseCobra.
 - [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports): ^4.0.0
 - [framer-motion](https://www.npmjs.com/package/framer-motion): ^11.18.2
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.564.0
-- [next](https://www.npmjs.com/package/next): 15.5.10
+- [next](https://www.npmjs.com/package/next): 15.5.15
 - [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
 - [postcss](https://www.npmjs.com/package/postcss): ^8
 - [prettier](https://www.npmjs.com/package/prettier): ^3.8.1
