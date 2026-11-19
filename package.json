@@ -28,7 +28,7 @@
     "@react-email/components": "^1.0.12",
     "@tanstack/react-query": "^5.107.1",
     "@uploadthing/react": "^6.6.0",
-    "@vercel/config": "^0.0.33",
+    "@vercel/config": "^0.14.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",

@@ -54,8 +54,8 @@ importers:
         specifier: ^6.6.0
         version: 6.8.0(next@15.5.24(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)(uploadthing@6.13.3(next@15.5.24(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(tailwindcss@3.4.19))
       '@vercel/config':
-        specifier: ^0.0.33
-        version: 0.0.33
+        specifier: ^0.14.1
+        version: 0.14.1
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -1319,12 +1319,12 @@ packages:
   '@uploadthing/shared@6.7.9':
     resolution: {integrity: sha512-EsHkD31HLBHYB59ZbUVQg1pADtMNf+qjlKwniq+gxXsOOe5heD/zunJStjYWLhwB+C8+SaCPXvM7LiDmv5s/Vw==}
 
-  '@vercel/config@0.0.33':
-    resolution: {integrity: sha512-TkYY/kKzAsYlKTmz/uScyEB2vDV1P9HzBVJRSJ5RwU7XNPyYksYNnPTMmytZZfv/poI+xs6KO5fyYxBErH6rtg==}
+  '@vercel/config@0.14.1':
+    resolution: {integrity: sha512-iaCxmLGGm84mglf1NpCEXYbvH8u5xvcWCuXo7iBevxGlIHoN6/qV9532oYf2wv6EPgxdh12Q9jwav+3Buv387w==}
     hasBin: true
 
-  '@vercel/routing-utils@5.3.3':
-    resolution: {integrity: sha512-KYm2sLNUD48gDScv8ob4ejc3Gww2jcJyW80hTdYlenAPz/5BQar1Gyh38xrUuZ532TUwSb5mV1uRbAuiykq0EQ==}
+  '@vercel/routing-utils@6.6.1':
+    resolution: {integrity: sha512-rIVybdiezAVE4KZVjXRrKHUEoUNW1RzNTkcUR/0v1rsOnxn2EqNjleNP7HFoPlr0vfWvXUUtUKPTM7AFxIcJnw==}
 
   abbrev@2.0.0:
     resolution: {integrity: sha512-6/mh1E2u2YgEsCHdY0Yx5oW+61gZU+1vXaoiHHrpKeuRNNgFvS+/jrwHiQhB5apAf5oB7UB7E19ol2R2LKH8hQ==}
@@ -4117,13 +4117,13 @@ snapshots:
       effect: 3.4.8
       std-env: 3.10.0
 
-  '@vercel/config@0.0.33':
+  '@vercel/config@0.14.1':
     dependencies:
-      '@vercel/routing-utils': 5.3.3
+      '@vercel/routing-utils': 6.6.1
       pretty-cache-header: 1.0.0
       zod: 3.25.76
 
-  '@vercel/routing-utils@5.3.3':
+  '@vercel/routing-utils@6.6.1':
     dependencies:
       path-to-regexp: 6.1.0
       path-to-regexp-updated: path-to-regexp@6.3.0
