@@ -329,7 +329,7 @@ Useful resources and dependencies that are used in CaseCobra.
 - [react](https://www.npmjs.com/package/react): ^19.2.4
 - [react-dom](https://www.npmjs.com/package/react-dom): ^19.2.4
 - [react-dom-confetti](https://www.npmjs.com/package/react-dom-confetti): ^0.2.0
-- [react-dropzone](https://www.npmjs.com/package/react-dropzone): ^14.4.1
+- [react-dropzone](https://www.npmjs.com/package/react-dropzone): ^20.2.0
 - [react-rnd](https://www.npmjs.com/package/react-rnd): ^10.5.2
 - [resend](https://www.npmjs.com/package/resend): ^3.5.0
 - [sharp](https://www.npmjs.com/package/sharp): ^0.34.5
