@@ -305,7 +305,7 @@ Useful resources and dependencies that are used in CaseCobra.
 - [@radix-ui/react-progress](https://www.npmjs.com/package/@radix-ui/react-progress): ^1.1.8
 - [@radix-ui/react-scroll-area](https://www.npmjs.com/package/@radix-ui/react-scroll-area): ^1.2.10
 - [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.2.4
-- [@react-email/components](https://www.npmjs.com/package/@react-email/components): ^1.0.7
+- [@react-email/components](https://www.npmjs.com/package/@react-email/components): ^1.0.12
 - [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.107.1
 - [@types/node](https://www.npmjs.com/package/@types/node): ^20.19.33
 - [@types/react](https://www.npmjs.com/package/@types/react): ^18.3.28
