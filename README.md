@@ -312,7 +312,7 @@ Useful resources and dependencies that are used in CaseCobra.
 - [@types/react](https://www.npmjs.com/package/@types/react): ^18.3.28
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^18.3.7
 - [@uploadthing/react](https://www.npmjs.com/package/@uploadthing/react): ^6.6.0
-- [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.0.33
+- [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.14.1
 - [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
 - [clsx](https://www.npmjs.com/package/clsx): ^2.1.1
 - [eslint](https://www.npmjs.com/package/eslint): ^8
