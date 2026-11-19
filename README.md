@@ -308,7 +308,7 @@ Useful resources and dependencies that are used in CaseCobra.
 - [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.2.4
 - [@react-email/components](https://www.npmjs.com/package/@react-email/components): ^1.0.12
 - [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.107.1
-- [@types/node](https://www.npmjs.com/package/@types/node): ^20.19.33
+- [@types/node](https://www.npmjs.com/package/@types/node): ^26.6.6
 - [@types/react](https://www.npmjs.com/package/@types/react): ^18.3.28
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^18.3.7
 - [@uploadthing/react](https://www.npmjs.com/package/@uploadthing/react): ^6.6.0
@@ -331,7 +331,7 @@ Useful resources and dependencies that are used in CaseCobra.
 - [react-dom-confetti](https://www.npmjs.com/package/react-dom-confetti): ^0.2.0
 - [react-dropzone](https://www.npmjs.com/package/react-dropzone): ^20.2.0
 - [react-rnd](https://www.npmjs.com/package/react-rnd): ^10.5.2
-- [resend](https://www.npmjs.com/package/resend): ^3.5.0
+- [resend](https://www.npmjs.com/package/resend): ^6.38.1
 - [sharp](https://www.npmjs.com/package/sharp): ^0.34.5
 - [sonner](https://www.npmjs.com/package/sonner): ^1.7.4
 - [stripe](https://www.npmjs.com/package/stripe): ^20.3.1
