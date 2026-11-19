@@ -16,7 +16,7 @@
     "@headlessui/react": "^2.2.9",
     "@kinde-oss/kinde-auth-nextjs": "^2.11.0",
     "@paralleldrive/cuid2": "^2.3.1",
-    "@prisma/client": "^5.15.0",
+    "@prisma/client": "^7.10.1",
     "@radix-ui/react-aspect-ratio": "^1.1.8",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.2.1",
